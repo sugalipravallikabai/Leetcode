@@ -1,11 +1,12 @@
 class Solution:
     def threeSum(self, n: List[int]) -> List[List[int]]:
         n.sort()
-        k=set()
+        k = set()
+        
         for i in range(len(n)):
-            l=i+1
-            r=len(n)-1
-            while l<r:
+            l = i+1
+            r = len(n)-1
+            while l < r:
                 if n[i]+n[l]+n[r] == 0:
                     k.add((n[i],n[l],n[r]))
                     l+=1
