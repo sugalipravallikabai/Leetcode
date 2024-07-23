@@ -5,10 +5,7 @@ class Solution:
         
         for i in range(len(w)):
             
-            for j in range(len(w[i])):
+            if x in w[i]:
                 
-                if w[i][j] == x:
-                    
-                    res.append(i)
-                    break
+                res.append(i)
         return res
