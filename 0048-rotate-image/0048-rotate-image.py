@@ -3,17 +3,14 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
-        r,c = len(m),len(m[0])
-        res = [[0]*r for _ in range(c)]
+        n = len(m)
         
-        for i in range(r):
-            for j in range(c):
+        for i in range(n):
+            for j in range(i,n):
                 
-                res[j][r-1-i] = m[i][j]
+                m[i][j] , m[j][i] = m[j][i] , m[i][j]
                 
-        for i in range(r):
-            for j in range(c):
-                
-                m[i][j] = res[i][j]
-                
+        for i in range(n):
+            m[i].reverse()
+        
         return m
