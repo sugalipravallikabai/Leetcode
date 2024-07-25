@@ -3,11 +3,12 @@ class Solution:
         
         cnt = 0
         n.sort()
-        for i in range(len(n)):
-            for j in range(i+1,len(n)):
-                if n[i]+n[j] < target:
-                    cnt += 1
-                else:
-                    break
+        l,r = 0,len(n)-1
+        while l < r:
+            if n[l] + n[r] < target:
+                cnt += r-l
+                l += 1
+            else:
+                r -= 1
         return cnt
         
