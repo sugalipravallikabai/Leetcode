@@ -7,18 +7,23 @@ class Solution:
         n = len(a)
         temp = [0]*n
         cnt = 0
+        q = deque()
         
-        def dfs(x):
-            # temp[x] = 1
-            for j in range(n):
-                if a[x][j] == 1 and temp[j] != 1:
-                    temp[j] = 1
-                    dfs(j)
+        def bfs(x):
+            q.append(x)
+            while q:
+                node = q.popleft()
+                temp[node] = 1
+                for j in range(n):
+                    if a[node][j] == 1 and temp[j] !=1:
+                        q.append(j)
+                        temp[j] = 1
+            
         
         for i in range(n):
             if temp[i] == 0:
-                dfs(i)
-                temp[i] = 1
-                cnt+=1
+                bfs(i)
+                # tem[i] = 1
+                cnt += 1
         return cnt
             
