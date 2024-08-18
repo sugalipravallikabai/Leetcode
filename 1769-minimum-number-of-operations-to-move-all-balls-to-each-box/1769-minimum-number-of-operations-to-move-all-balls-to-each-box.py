@@ -1,15 +1,22 @@
 class Solution:
     def minOperations(self, b : str) -> List[int]:
-        l = []
-        res = []
-        for i in b:
-            l.append(int(i))
         
-        for i in range(len(l)):
-            tol = 0
-            for j in range(len(l)):
-                if j != i and l[j] == 1:
-                    tol += abs(j-i)
-            res.append(tol)
+        n = len(b)
+        pl = [0]*n
+        pr = [0]*n
+        cnt = 0
+        for i in range(n):
+            if i > 0:
+                pl[i] = pl[i-1] + cnt
+            if b[i] == '1':
+                cnt += 1
+        cnt = 0
+        for i in range(n-1,-1,-1):
+            if i < n-1:
+                pr[i] = pr[i+1]+cnt
+            if b[i] == '1':
+                cnt += 1 
+        res = [pl[i]+pr[i] for i in range(n)]
         return res
+        
             
