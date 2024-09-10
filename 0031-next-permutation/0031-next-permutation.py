@@ -11,7 +11,7 @@ class Solution:
                 break
         if ind == -1:
             n.reverse()
-            return n
+            return 
         for i in range(len(n)-1,ind,-1):
             if n[ind] < n[i]:
                 n[i],n[ind]=n[ind],n[i]
