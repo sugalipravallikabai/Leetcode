@@ -1,6 +1,9 @@
-class Solution:
-    def removeDuplicates(self, n: List[int]) -> int:
-        
+class Solution(object):
+    def removeDuplicates(self, n):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
         m = len(n)
         j = 1
         for i in range(1,m):
@@ -8,4 +11,5 @@ class Solution:
                 n[j] = n[i]
                 j+=1
         return j
+        
         
