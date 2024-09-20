@@ -1,32 +1,34 @@
-from typing import List
-
-class Solution:
-    def searchRange(self, n: List[int], t: int) -> List[int]:
-        s, e = -1, -1
-        if not n:
-            return [s, e]
+class Solution(object):
+    def searchRange(self, n , t):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        f = -1
+        e = -1
         
-        l, r = 0, len(n) - 1
+        l,r = 0,len(n)-1
         while l <= r:
-            m = (l + r) // 2
-            if n[m] < t:
-                l = m + 1
-            elif n[m] > t:
-                r = m - 1
+            m = (l+r)//2
+            if n[m] == t:
+                f = m
+                r = m-1
+            elif n[m] < t:
+                l = m+1
             else:
-                s = m
-                r = m - 1
+                r = m-1
         
-    
-        l, r = 0, len(n) - 1
+        l,r = 0,len(n)-1
         while l <= r:
-            m = (l + r) // 2
-            if n[m] < t:
-                l = m + 1
-            elif n[m] > t:
-                r = m - 1
-            else:
+            m = (l+r)//2
+            if n[m] == t:
                 e = m
-                l = m + 1 
+                l = m+1
+            elif n[m]<t:
+                l = m+1
+            else:
+                r = m-1
+                
+        return [f,e]
         
-        return [s, e]
