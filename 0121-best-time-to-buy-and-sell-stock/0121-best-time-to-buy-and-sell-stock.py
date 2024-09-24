@@ -2,10 +2,10 @@ class Solution:
     def maxProfit(self, p : List[int]) -> int:
         
         mini = p[0]
-        profit = 0
+        dp = [0]*(len(p))
         
         for i in range(1,len(p)):
-            cost = p[i]-mini
-            profit = max(cost,profit)
+            
             mini = min(mini,p[i])
-        return profit
+            dp[i] = max(dp[i-1],p[i]-mini)
+        return dp[-1]
