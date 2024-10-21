@@ -1,20 +1,19 @@
-
 class Solution:
-    def nextPermutation(self, n : List[int]) -> None:
+    def nextPermutation(self, a : List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
         ind = -1
-        for i in range(len(n)-2,-1,-1):
-            if n[i] < n[i+1]:
+        for i in range(len(a)-2,-1,-1):
+            if a[i] < a[i+1]:
                 ind = i
                 break
         if ind == -1:
-            n.reverse()
-            return 
-        for i in range(len(n)-1,ind,-1):
-            if n[ind] < n[i]:
-                n[i],n[ind]=n[ind],n[i]
+            return a.sort()
+        for i in range(len(a)-1,ind-1,-1):
+            if a[i] > a[ind]:
+                a[i],a[ind]=a[ind],a[i]
                 break
-        n[ind+1:] = reversed(n[ind+1:])
-        return n
+        a[ind+1:] = sorted(a[ind+1:])
+        return a
+        
