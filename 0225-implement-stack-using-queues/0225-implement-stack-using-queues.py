@@ -1,34 +1,22 @@
 class MyStack:
 
     def __init__(self):
-        self.q = [0]*100000
-        self.ptr = 0
+        self.st = []
 
     def push(self, x: int) -> None:
-        self.q[self.ptr] = x
-        self.ptr += 1
+        self.st.append(x)
 
     def pop(self) -> int:
-        if self.ptr == 0:
-            return self.q[self.ptr]
-        temp = self.ptr-1
-        self.ptr -= 1
-        return self.q[temp]
-        
+        if self.st:
+            return self.st.pop()
+        return -1
+
     def top(self) -> int:
-        if self.ptr == 0:
-            return self.q[self.ptr]
-        temp = self.ptr-1
-        # self.ptr -= 1
-        return self.q[temp]
+        if self.st:
+            return self.st[-1]
 
     def empty(self) -> bool:
-        
-        if self.ptr == 0:
-            return True
-        else:
-            return False
-        
+        return True if len(self.st) == 0 else False
 
 
 # Your MyStack object will be instantiated and called as such:
