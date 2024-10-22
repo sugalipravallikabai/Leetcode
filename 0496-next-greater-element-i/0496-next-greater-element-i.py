@@ -1,19 +1,20 @@
 class Solution:
     def nextGreaterElement(self, n1: List[int], n2: List[int]) -> List[int]:
-        res = [0]*len(n1)
-        
+        ans = [-1]*len(n1)
         for i in range(len(n1)):
-            t1 = n1[i]
+            d = n1[i]
             st = []
             for j in range(len(n2)-1,-1,-1):
-                if t1 == n2[j]:
-                    while st and st[-1] <= t1:
+                if d == n2[j]:
+                    while st and st[-1] <= d:
                         st.pop()
                     if not st:
-                        res[i] = -1
+                        ans[i] = -1
                     else:
-                        res[i]=st[-1]
+                        ans[i] = st[-1]
                         break
                 else:
                     st.append(n2[j])
-        return res
+        return ans
+        
+        
