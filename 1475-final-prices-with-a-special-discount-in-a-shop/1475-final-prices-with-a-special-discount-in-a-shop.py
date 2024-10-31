@@ -1,6 +1,6 @@
 class Solution:
     def finalPrices(self, p : List[int]) -> List[int]:
-        res = p[:]
+        res = p
         st = []
         for i in range(len(p)):
             while st and p[st[-1]] >= p[i]:
