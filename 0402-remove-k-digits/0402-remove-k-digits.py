@@ -1,15 +1,17 @@
 class Solution:
-    def removeKdigits(self, n : str, k: int) -> str:
-        if len(n) == k:
+    def removeKdigits(self, num: str, k: int) -> str:
+        if len(num) == k:
             return '0'
         st = []
-        for i in range(len(n)):
-            while st and k > 0 and int(st[-1]) > int(n[i]) :
+        for i in num:
+            while st and k > 0 and st[-1] > int(i):
                 st.pop()
                 k -= 1
-            st.append(n[i])
-        while k != 0:
+            st.append(int(i))
+        while k > 0 :
             st.pop()
-            k -= 1
-        res =  ''.join(st).lstrip('0')
-        return res if res else '0'
+            k-=1    
+        ans = ''.join(map(str, st)).lstrip('0')
+        
+        return ans if ans else '0'
+            
