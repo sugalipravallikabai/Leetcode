@@ -10,9 +10,7 @@ class Solution:
                 d[i] = st[-1]
             else:
                 d[i] = -1
-            
             st.append(i)
-            
-        return [d[num] for num in n1]
+        return [d[i] for i in n1]
         
         
