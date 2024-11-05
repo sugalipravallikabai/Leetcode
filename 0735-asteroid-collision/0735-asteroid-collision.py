@@ -12,5 +12,5 @@ class Solution:
                     st.pop()
                 elif not st or st[-1] < 0:
                     st.append(a[i])
+        
         return st
-                
