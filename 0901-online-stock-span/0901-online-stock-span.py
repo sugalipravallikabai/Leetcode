@@ -1,14 +1,20 @@
 class StockSpanner:
 
     def __init__(self):
-        self.st = []
+        self.a = []
 
     def next(self, price: int) -> int:
+        st = self.a
         cnt = 1
-        while self.st and self.st[-1][0] <= price:
-            cnt += self.st.pop()[1]
-        self.st.append((price,cnt))
+        cur_p = price
+        while st and st[-1][0] <= cur_p:
+            prev_p,prev_span = st.pop()
+            cnt += prev_span
+            
+        st.append([cur_p,cnt])
+        
         return cnt
+
 
 # Your StockSpanner object will be instantiated and called as such:
 # obj = StockSpanner()
