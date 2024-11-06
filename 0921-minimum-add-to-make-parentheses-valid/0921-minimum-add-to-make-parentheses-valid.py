@@ -1,7 +1,6 @@
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
         st = []
-        cnt = 0
         for c in s:
             if c == '(':
                 st.append(c)
@@ -10,5 +9,4 @@ class Solution:
                     st.pop()
                 else:
                     st.append(c)
-                    cnt+=1
         return len(st)
