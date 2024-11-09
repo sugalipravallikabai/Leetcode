@@ -10,3 +10,4 @@ class Solution:
                 i = st.pop()
                 m = max(m,j-i)
         return m
+            
