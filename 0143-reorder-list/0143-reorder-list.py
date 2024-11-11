@@ -9,7 +9,7 @@ class Solution:
         Do not return anything, modify head in-place instead.
         """
         if not head:
-            return head
+            return None
         s = f = head
         while f and f.next:
             s = s.next
@@ -20,12 +20,12 @@ class Solution:
             cur.next = pre
             pre = cur
             cur = t
-        first,second = head,pre
-        while second.next:
-            t = first.next
-            first.next = second
-            first = t
-            t1 = second.next
-            second.next = first
-            second = t1
+        f,s = head,pre
+        while s.next:
+            temp = f.next
+            t = s.next
+            f.next = s
+            s.next = temp
+            f = temp
+            s = t
         
