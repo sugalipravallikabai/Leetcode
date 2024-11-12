@@ -1,11 +1,13 @@
 class Solution:
     def maxProfit(self, p : List[int]) -> int:
-        
-        mini = p[0]
-        dp = [0]*(len(p))
-        
-        for i in range(1,len(p)):
+        m = float('-inf')
+        a = [0]*len(p)
+        for i in range(len(p)-1,-1,-1):
+            m = max(m,p[i])
+            a[i] = m
+        res = float('-inf')
+        for j in range(len(p)):
+            res = max(a[j] - p[j],res)
+        return res
             
-            mini = min(mini,p[i])
-            dp[i] = max(dp[i-1],p[i]-mini)
-        return dp[-1]
+            
