@@ -1,14 +1,10 @@
 class Solution:
-    def getRow(self, r : int) -> List[int]:
-        
-        if r == 0:
-            return [1]
+    def getRow(self, r: int) -> List[int]:
         ans = []
         ans.append(1)
-        val = 1
-        r=r+1
-        for i in range(1,r):
-            val *= (r-i)
-            val //= i
-            ans.append(val)
+        for i in range(r):
+            res = ans[-1]*(r-i)
+            res = res//(i+1)
+            ans.append(res)
         return ans
+        
