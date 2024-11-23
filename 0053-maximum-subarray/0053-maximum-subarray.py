@@ -1,14 +1,17 @@
 class Solution:
-    def maxSubArray(self, n : List[int]) -> int:
+    def maxSubArray(self, n: List[int]) -> int:
         
-        tol = 0
+        if len(n) == 1:
+            return n[0]
         m = float('-inf')
-        for i in range(len(n)):
-            tol += n[i]
-            if tol > m:
-                m = tol
-            if tol < 0:
-                tol = 0
+        l = r = 0
+        tol = 0
+        while r < len(n):
+            while tol < 0 and l < r:
+                tol -= n[l]
+                l+=1
+            tol += n[r]
+            m = max(m,tol)
+            r += 1
+        
         return m
-            
-          
