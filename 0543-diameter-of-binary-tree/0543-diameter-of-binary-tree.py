@@ -17,7 +17,7 @@ class Solution:
             
             maxi[0] = max(maxi[0],lh+rh)
             
-            return 1+max(lh,rh)
+            return max(lh,rh)+1
         
         fun(root)
         return maxi[0]
