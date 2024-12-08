@@ -2,13 +2,14 @@ class Solution:
     def isValid(self, s: str) -> bool:
         st = []
         for c in s:
-            if c in '({[':
+            if c in '([{':
                 st.append(c)
-            elif c in ')}]':
+            else:
                 if not st:
                     return False
-                x = st.pop()
-                if (x == '(' and c != ')') or (x == '[' and c != ']') or (x == '{' and c != '}'):
+                chr = st[-1]
+                if (c == ')' and chr == '(') or (c == ']' and chr == '[') or (c == '}' and chr == '{'):
+                    st.pop()
+                else:
                     return False
-        
-        return True if len(st)==0 else False
+        return False if st else True
