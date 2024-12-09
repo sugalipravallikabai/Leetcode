@@ -1,12 +1,9 @@
 class Solution:
-    def twoSum(self, n : List[int], t : int) -> List[int]:
-        m = len(n)
-        d = {}
-        for i in range(m):
-            if t - n[i] in d:
-                return [d[t-n[i]],i]
-            d[n[i]] = i
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        d ={}
+        n = len(nums)
+        for i in range(n):
+            if target - nums[i] in d:
+                return [d[target - nums[i]],i]
+            d[nums[i]] = i
         return [-1,-1]
-        
-                
-            
