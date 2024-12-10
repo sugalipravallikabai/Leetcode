@@ -1,20 +1,21 @@
 class Solution:
-    def trap(self, h : List[int]) -> int:
-        
-        n = len(h)
-        lmax , rmax = 0,0
-        tol , l , r = 0,0,n-1
+    def trap(self, height: List[int]) -> int:
+        # no negative integers
+        # linear data structure
+        l,r = 0,len(height)-1
+        tol = 0
+        lmax,rmax=0,0
         while l < r:
-            if h[l] <= h[r]:
-                if lmax >= h[l]:
-                    tol += lmax-h[l]
+            if height[l] <= height[r]:
+                if lmax > height[l]:
+                    tol += lmax-height[l]
                 else:
-                    lmax = h[l]
-                l += 1
+                    lmax = max(lmax,height[l])
+                l = l+1
             else:
-                if rmax >= h[r]:
-                    tol += rmax-h[r]
+                if rmax > height[r]:
+                    tol += rmax-height[r]
                 else:
-                    rmax = h[r]
-                r -= 1
+                    rmax = max(rmax,height[r])
+                r = r-1
         return tol
