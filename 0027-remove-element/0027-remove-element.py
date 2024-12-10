@@ -1,9 +1,9 @@
 class Solution:
-    def removeElement(self, a : List[int], val: int) -> int:
-        n = len(a)
-        j=0
-        for i in range(n):
-            if a[i] != val:
-                a[j] = a[i]
-                j+=1
-        return j
+    def removeElement(self, nums: List[int], val: int) -> int:
+        l,r=0,0
+        while r < len(nums):
+            if nums[r] != val:
+                nums[l] = nums[r]
+                l+=1
+            r += 1
+        return l
