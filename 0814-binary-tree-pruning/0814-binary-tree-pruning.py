@@ -17,6 +17,8 @@ class Solution:
                 node.left = None
             if not rh:
                 node.right = None
+            
             return node.val == 1 or lh or rh
+        
         
         return root if fun(root) else None
