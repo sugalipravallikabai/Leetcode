@@ -18,5 +18,5 @@ class Solution:
             dp[i][j] = left+up
             return dp[i][j]
         dp = [[-1 for _ in range(m)] for _ in range(n)]
-        return fun(n-1,m-1,dp)%mod
+        return fun(n-1,m-1,dp)
         
