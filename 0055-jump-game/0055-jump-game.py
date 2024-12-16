@@ -1,10 +1,8 @@
 class Solution:
-    def canJump(self, n : List[int]) -> bool:
-        if len(n) == 1:
-            return True
-        m = 0
-        for i in range(len(n)):
-            if i > m:
+    def canJump(self, nums: List[int]) -> bool:
+        maxi = 0
+        for i in range(len(nums)):
+            if i > maxi:
                 return False
-            m = max(m,i+n[i])
+            maxi = max(maxi,i+nums[i])
         return True
