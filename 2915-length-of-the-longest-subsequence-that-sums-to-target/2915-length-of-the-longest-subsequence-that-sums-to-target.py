@@ -8,20 +8,17 @@ class Solution:
             if k < 0:
                 return float('-inf')
             if i == 0:
+                if nums[i] == k:
+                    return 1
                 if k == 0:
                     return 0
-                if k == nums[i]:
-                    return 1
                 return float('-inf')
-            
             if dp[i][k] != -1:
                 return dp[i][k]
-
-            notpick = 0+fun(i - 1, k)
+            notpick = 0+fun(i-1,k)
             pick = float('-inf')
             if nums[i] <= k:
-                pick = 1+fun(i - 1, k - nums[i])
-            
+                pick = 1+fun(i-1,k-nums[i])
             dp[i][k] = max(pick,notpick)
             return dp[i][k]
         ans = fun(n - 1, k)
