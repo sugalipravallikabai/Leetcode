@@ -8,11 +8,13 @@ class Solution:
         if not head or not head.next:
             return head
         temp = head
-        pre = None
-        while temp:
-            after = temp.next
+        pre = temp
+        after = head.next
+        while temp.next and after:
+            temp = after
+            after = after.next
             temp.next = pre
             pre = temp
-            temp = after
+        head.next = None
         head = pre
         return head
